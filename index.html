@@ -48,7 +48,7 @@
   --display:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
   --body:"Public Sans","Helvetica Neue",Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
-  --wrap:1180px;
+  --wrap:min(1320px, calc(100vw - 48px));
   --gl:max(16px, env(safe-area-inset-left, 0px));
   --gr:max(16px, env(safe-area-inset-right, 0px));
 }
@@ -71,7 +71,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 a{color:inherit}
 img{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
-.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
 h1,h2,h3{font-family:var(--display);font-stretch:80%;line-height:1.02;letter-spacing:-.01em;margin:0;text-wrap:balance}
 p{margin:0}
 .label{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -117,7 +117,7 @@ p{margin:0}
 .hero::after{content:"";position:absolute;right:-180px;top:-140px;width:620px;height:620px;border-radius:50%;background:radial-gradient(closest-side,rgba(60,110,255,.38),transparent);pointer-events:none}
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.85fr);gap:56px;align-items:center;padding-block:76px 132px}
 .hero .label{color:var(--sky)}
-.hero h1{margin-top:18px;font-size:clamp(46px,7vw,92px);font-weight:900;font-stretch:72%;letter-spacing:-.015em}
+.hero h1{margin-top:18px;font-size:clamp(46px,6.25vw,88px);font-weight:900;font-stretch:72%;letter-spacing:-.015em}
 .hl{position:relative;white-space:nowrap;color:#fff}
 .hl::after{content:"";position:absolute;left:-2px;right:-4px;bottom:.06em;height:.16em;background:var(--signal);z-index:-1;border-radius:2px;transform-origin:left;animation:mark .9s .35s cubic-bezier(.2,.7,.2,1) both}
 @keyframes mark{from{transform:scaleX(0)}to{transform:scaleX(1)}}
@@ -151,6 +151,7 @@ p{margin:0}
   .swatch-back{margin-left:-170px}
   .tag{margin-left:40px}
 }
+@media (max-width:520px){.hero .wrap{padding-block:40px 96px}.hero h1{font-size:clamp(42px,12vw,64px)}.hero .lede{font-size:17px}.hero .actions .btn{width:100%;justify-content:center}}
 @media (max-width:480px){.swatch-back{display:none}.tag{margin-left:0}}
 
 /* Stats card overlapping hero */
